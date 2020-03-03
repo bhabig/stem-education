@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EducationDemoApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <%= javascript_pack_tag 'welcome', 'data-turbolinks-track': 'reload' %>
+  </head>
+<% if params["controller"] != "sessions" && params["controller"] != "home" && params["action"] != "registration" %>
+  <body>
+      <div class="wrapper">
+          <nav id="sidebar">
+              <div class="sidebar-header">
+                <h1>
+                  STEMulate
+                </h1>
+                <div>your mind</div>
+            </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Section Courses</a>
+                <ul class="collapse sub-menu" id="homeSubmenu">
+                <% Course.all.select{|c| c.course_section_id == current_user.course_section_id }.each do |course| %>
+                    <li>
+                        <%= link_to  course.name, course_path(course) %>
+                    </li>
+                    <% end %>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Sections</a>
+                <ul class="collapse sub-menu" id="pageSubmenu">
+                    <% CourseSection.all.each do |sec| %>
+                    <li>
+                        <%= link_to  sec.name, course_section_path(sec) %>
+                    </li>
+                    <% end %>
+                </ul>
+            </li>
+            <li>
+                <a href="#instructorSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Instructors</a>
+                <ul class="collapse sub-menu" id="instructorSubmenu">
+                    <% Instructor.all.each do |i| %>
+                    <li>
+                        <%= link_to i.name, course_section_path(i) %>
+                    </li>
+                    <% end %>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Email for Help</a>
+            </li>
+        </ul>
+          </nav>
+    
+          <!-- Page Content -->
+          <div id="content">
+              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <div class="container-fluid">
+
+                      <button type="button" id="sidebarCollapse" class="btn">
+                          <i class="fas fa-align-left"></i>
+                          <span>Toggle Sidebar</span>
+                      </button>
+
+                  </div>
+                  <div class="container-fluid section-clan">
+                    <% CourseSection.all.select {|cs| cs.id == current_user.course_section_id }.each do |s| %>
+                      
+                      <div><%= s.name %></div>
+                    <% end %>
+                  </div>
+              </nav>
+              <div id="yield">
+                <%= yield %>
+              </div>
+          </div>
+
+      </div>      
+  </body>
+  <% else %>
+    <%= yield %>
+  <% end %>
+</html>

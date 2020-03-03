@@ -1,0 +1,21 @@
+// Place all the styles related to the Students controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.profile-component {
+    margin: 2.5% 12%;
+    border: 1px solid #2B3252;
+    border-radius: 11px;
+}
+
+.profile-component h2 {
+    background-color: #2B3252;
+    color: #FAD744;
+    padding: 18px 36px;
+    border-radius: 8px 8px 0px 0px;
+    border: 1px solid #2B3252;
+    margin: 0;
+}
+
+.profile-component-body {
+    padding: 26px 36px;
+}

@@ -1,0 +1,85 @@
+<%= javascript_pack_tag 'welcome', 'data-turbolinks-track': 'reload' %>
+<section id="student-registration">
+    <div class="registration-banner">
+        <%= image_tag  "stem_banner.png", class: "registration-image" %>
+    </div>
+    <div class="registration-section">
+            <div class="title">
+                You're almost there!
+            </div>
+            <div class="registration-section-inner">
+            <h5>
+                    Before you can begin your education journey into the world of science and mathematics, you must first complete some of your profile details.
+            </h5>
+            <hr />
+            <%= form_for current_user do |f| %>
+                <% if (!current_user.name || current_user.name == "" || current_user.name.nil?) && !current_user.has_set_password %>
+                    <h6>
+                        <div>
+                            First, if you'd like, you may add or update your name (if you signed in with Facebook or Google):
+                        </div>
+                    </h6>
+                    <br />
+                    <div class="form-group">
+                        <%= f.label :name %>
+                        <%= f.text_field :name, class: 'form-control', placeholder: 'Ex: Jane Doe' %>
+                    </div>
+                    <h6>
+                        <div>
+                            Next, if you'd like, you may add or update your name (if you signed in with Facebook or Google):
+                        </div>
+                    </h6>
+                    <div class="form-group">
+                        <%= f.label :password %>
+                        <%= f.password_field :password, class: 'form-control', placeholder: 'Enter Password, ex: P@ssword10' %>
+                    </div>
+                    <small>
+                    Must be minimum of 10 characters, 1+ numbers, 1+ special characters: @ # $ % & ! ^
+                    </small>
+                    <hr />
+                    <br />
+                <% elsif (!current_user.name || current_user.name == "" || current_user.name.nil?) %>
+                    <h6>
+                        <div>
+                            First, if you'd like, you may add or update your name (if you signed in with Facebook or Google):
+                        </div>
+                    </h6>
+                    <br />
+                    <div class="form-group">
+                        <%= f.label :name %>
+                        <%= f.text_field :name, class: 'form-control', placeholder: 'Ex: Jane Doe' %>
+                    </div>
+                    <hr />
+                    <br />
+                <% else %>
+                    <h6>
+                        <div>
+                            Next, if you'd like, you may add or update your name (if you signed in with Facebook or Google):
+                        </div>
+                    </h6>
+                    <div class="form-group">
+                        <%= f.label :password %>
+                        <%= f.password_field :password, class: 'form-control', placeholder: 'Enter Password, ex: P@ssword10' %>
+                    </div>
+                    <small>
+                    Must be minimum of 10 characters, 1+ numbers, 1+ special characters: @ # $ % & ! ^
+                    </small>
+                    <hr />
+                    <br />
+                <% end %>
+                <h6>
+                    <strong>Required!</strong> Choose a focus for your studies from the menu below:
+                </h6>
+                <div class="form-group">
+                    <%= f.label :course_section_id, "Sections", class: "student-section-label" %>
+                    <%= f.select :course_section_id, params["course_options"].map { |cs| [cs.name, cs.id] }, { include_blank: "Choose Section" }, { class: "form-control" } %>
+                    <small>
+                        There is a maximum capacity of students per section. If this section is full, you will be given the option of going on the waitlist for that section, or to choose a different section.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <%= f.submit "Update", id: "submit", class: "form-control btn", type: "submit" %>
+                </div>
+            <% end %>
+        </div>
+</section>

@@ -1,0 +1,288 @@
+    /*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+    
+    html,
+    body {
+        height: 100%;
+    }
+    
+    .center {
+        align-self: center;
+        align-content: center;
+        text-align: center;
+        justify-self: center;
+        justify-content: center;
+    }
+    
+    .instructor-image {
+        height: 250px;
+        width: auto;
+    }
+    
+    .alert {
+        display: inline-block;
+        z-index: 13;
+    }
+    
+    #yield {
+        padding: 24px;
+    }
+    /* sidebar/navbar */
+    
+    @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #fafafa;
+    }
+    
+    p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1em;
+        font-weight: 300;
+        line-height: 1.7em;
+        color: #999;
+    }
+    
+    a,
+    a:hover,
+    a:focus {
+        color: #EF5455;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+    
+    .navbar {
+        padding: 15px 10px 17px 10px !important;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 0px;
+        box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .navbar-btn {
+        box-shadow: none;
+        outline: none !important;
+        border: none;
+    }
+    
+    .line {
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px dashed #ddd;
+        margin: 40px 0;
+    }
+    
+    .wrapper {
+        display: flex;
+        width: 100%;
+    }
+    
+    #sidebar {
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 999;
+        background: #2B3252;
+        color: #FAD744;
+        transition: all 0.3s;
+        box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.35), 0 -6px 8px 0 rgba(0, 0, 0, 0.35);
+    }
+    
+    #sidebar.active {
+        margin-left: -250px;
+    }
+    
+    #sidebar .sidebar-header {
+        padding: 6px 12px 6px 12px;
+        position: relative;
+        background: #2B3252;
+        border: 4px solid #FAD744;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .sidebar-header h1 {
+        margin-bottom: 0px;
+    }
+    
+    #sidebar .sidebar-header:before {
+        content: " ";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        border: 4px solid #EF5455;
+    }
+    
+    #sidebar ul.components {
+        /* padding: 20px 0; */
+    }
+    
+    .list-unstyled {
+        padding: 4px 10px;
+        padding-bottom: 0px !important;
+        margin-bottom: 0px;
+        /* border-top: 4px solid #EF5455;
+        border-right: 4px solid #EF5455;
+        border-bottom: 4px solid #FAD744;
+        border-left: 4px solid #FAD744; */
+        margin-top: 55px;
+    }
+    
+    #sidebar ul p {
+        color: #EF5455;
+        font-weight: 600;
+        padding: 10px;
+    }
+    
+    #sidebarCollapse {
+        background: #EF5455;
+        color: #2B3252;
+        font-weight: 600;
+        align-self: center;
+        vertical-align: middle;
+        transition: .4s;
+        margin-top: 6px;
+        padding: 14px;
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 -3px 5px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    #sidebarCollapse:hover {
+        box-shadow: none;
+        filter: brightness(175%);
+    }
+    
+    #sidebar ul li a {
+        padding: 14px;
+        font-size: 1.1em;
+        display: block;
+        background: #EF5455;
+        color: #2B3252;
+        font-weight: 600;
+        margin-bottom: 12px;
+        position: relative;
+        border-radius: 8px;
+    }
+    
+    #sidebar ul li a:before {
+        content: " ";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        border: 4px solid #2B3252;
+        border-radius: 8px;
+    }
+    
+    #sidebar ul li a:hover {
+        text-decoration: none;
+        background-color: #FAD744;
+        border-color: #2B3252
+    }
+    
+    a[data-toggle="collapse"] {
+        position: relative;
+    }
+    
+    .dropdown-toggle::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+    
+    ul ul a {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: #EF5455;
+    }
+    
+    ul.CTAs {
+        padding: 20px;
+    }
+    
+    ul.CTAs a {
+        text-align: center;
+        font-size: 0.9em !important;
+        display: block;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+    
+    a.download {
+        background: #2B3252;
+        color: #FAD744;
+    }
+    
+    a.article,
+    a.article:hover {
+        background: #2B3252 !important;
+        color: #3F5455 !important;
+    }
+    
+    #content {
+        width: calc(100% - 250px);
+        min-height: 100vh;
+        transition: all 0.3s;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    
+    .sub-menu {
+        list-style: none;
+    }
+    
+    .sub-menu li a {
+        background-color: #2B3252 !important;
+        color: #FAD744 !important;
+        text-decoration: none;
+        padding: 7px !important;
+        font-size: .8em !important;
+        display: block !important;
+        font-weight: 600 !important;
+        margin-bottom: 6px !important;
+        position: relative !important;
+        border: 2px solid #FAD744;
+        border-radius: 8px !important;
+    }
+    
+    #content.active {
+        width: 100%;
+    }
+    
+    @media (max-width: 768px) {
+        #sidebar {
+            margin-left: -250px;
+        }
+        #sidebar.active {
+            margin-left: 0;
+        }
+        #content {
+            width: 100%;
+        }
+        #content.active {
+            width: calc(100% - 250px);
+        }
+        #sidebarCollapse span {
+            display: none;
+        }
+    }

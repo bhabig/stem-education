@@ -1,0 +1,41 @@
+
+<div class="home-section">
+    <div class="layer">
+        <div class="inner-layer">
+            <div class="title">WELCOME</div>
+            <div class="body">
+                <%= form_for @student do |f| %>
+                    <div class="form-group">
+                        <%= f.label :email, "Email" %>
+                        <%= f.text_field :email, class: 'form-control form-control-sm', placeholder: 'enter email' %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label :password %>
+                        <%= f.password_field :password, class: 'form-control form-control-sm', type: 'password', placeholder: 'enter password, ex: P@ssword10' %>
+                        <small style="font-weight: 400;">
+                            ** Must be minimum of 10 characters, 1+ numbers, 1+ special characters: @ # $ % & ! ^
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <%= f.submit "Sign In", id: "submit", class: "form-control form-control-sm btn btn-primary", disabled:  true, type: "submit" %>
+                    <div>
+                <% end %>
+                <hr>
+                <div>
+                    OR
+                </div>
+                <br />
+                <a id="google-oauth" class="btn form-control form-control-sm" href="/auth/google_oauth2">
+                    <%= image_tag  "google_icon.png", id: "google-oauth-icon" %> 
+                    Sign in with Google
+                </a>
+                <br />
+                <br />
+                <a id="facebook-oauth" class="btn form-control form-control-sm" href="/auth/facebook">
+                    <%= image_tag  "facebook icon.png", id: "facebook-oauth-icon" %> 
+                    Sign in with Facebook
+                </a>
+            </div>
+        </div>
+    </div>  
+</div>
