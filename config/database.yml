@@ -93,5 +93,5 @@ production:
   encoding: unicode
   database: education_demo_app_production
   pool: 5
-  username: bhabig
-  password: postgres54
+  username: ENV["POSTGRES_USERNAME"]
+  password: ENV["POSTGRES_PASSWORD"]
