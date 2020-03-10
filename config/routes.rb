@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :course_segment_questions
+  resources :course_segments
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/login'

@@ -1,5 +1,19 @@
 <div class="flex-div">
     <div></div>
+    <div id="sign-in-btn" class="">
+        <%= link_to "", href: "#", id: "sign-in-btn" do %>
+            SCIENCE IS EVERYWHERE. START CONTRIBUTING NOW!
+        <% end %>
+    </div>
+    <div></div>
+</div>
+<script>
+    $('a').click(() => window.location.href = `${window.location.protocol}//${window.location.host}/sessions/welcome`);
+</script>
+
+<!--
+<div class="flex-div">
+    <div></div>
     <div 
         class='tableauPlaceholder' 
         id='viz1583369622232' 
@@ -47,3 +61,4 @@
     vizElement.parentNode.insertBefore(scriptElement, vizElement);
     $('a').click(() => window.location.href = `${window.location.protocol}//${window.location.host}/sessions/welcome`);
 </script>
+-->

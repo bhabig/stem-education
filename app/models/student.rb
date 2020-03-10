@@ -6,6 +6,8 @@ class Student < ApplicationRecord
 	has_one :instructor, through: :course_section
 	has_many :courses, through: :course_section
 	has_many :student_courses
+	has_many :course_segments, through: :courses
+	has_many :course_segment_questions, through: :course_segments
 
 	has_secure_password
 
@@ -31,6 +33,6 @@ class Student < ApplicationRecord
 	def current_course
 		#look at course completions. stop at first course not completed
 		#course completions would be in student_course
-		# binding.pry
+		binding.pry
 	end
 end
