@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EducationDemoApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EducationDemoApp</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-    <%= javascript_pack_tag 'welcome', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
   </head>
 <% if params["controller"] != "sessions" && params["controller"] != "home" && params["action"] != "registration" %>
   <body>
+    <% if flash["success"] != nil && flash["success"] != "" %>
+		<div class="alert alert-success alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<%= flash["success"] %>
+		</div>
+		<br />
+	<% end %>
+    <% if flash["info"] != nil && flash["info"] != "" %>
+		<div class="alert alert-info alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<%= flash["info"] %>
+		</div>
+	<% end %>
+
       <div class="wrapper">
           <nav id="sidebar">
               <div class="sidebar-header">
@@ -62,7 +76,7 @@
     
           <!-- Page Content -->
           <div id="content">
-              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <nav class="navbar navbar-expand-lg">
                   <div class="container-fluid">
 
                       <button type="button" id="sidebarCollapse" class="btn">
@@ -85,7 +99,27 @@
 
       </div>      
   </body>
+  <% elsif params["action"] == "registration" %>
+    <body>
+        <% if flash["success"] != nil && flash["success"] != "" %>
+            <div class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <%= flash["success"] %>
+            </div>
+            <br />
+        <% end %>
+        <% if flash["info"] != nil && flash["info"] != "" %>
+            <div class="alert alert-info alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <%= flash["info"] %>
+            </div>
+        <% end %>
+
+        <%= yield %>
+    </body>
   <% else %>
-    <%= yield %>
+    <body style="background-color: #EF5455 !important;">
+        <%= yield %>
+    </body>
   <% end %>
 </html>

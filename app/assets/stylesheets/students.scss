@@ -3,8 +3,9 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .profile-component {
     margin: 2.5% 12%;
-    border: 1px solid #2B3252;
+    border: 2px solid #2B3252;
     border-radius: 11px;
+    font-size: 16px;
 }
 
 .profile-component h2 {
@@ -18,4 +19,12 @@
 
 .profile-component-body {
     padding: 26px 36px;
+}
+
+div.alert {
+    z-index: 2147483647;
+    border-radius: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 -4px 8px 0 rgba(0, 0, 0, 0.2);
+    position: static;
+    top: 24px;
 }

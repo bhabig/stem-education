@@ -45,7 +45,7 @@
     @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
     body {
         font-family: 'Poppins', sans-serif;
-        background: #fafafa;
+        /* background: #fafafa; */
     }
     
     p {
@@ -130,10 +130,6 @@
         border: 4px solid #EF5455;
     }
     
-    #sidebar ul.components {
-        /* padding: 20px 0; */
-    }
-    
     .list-unstyled {
         padding: 4px 10px;
         padding-bottom: 0px !important;
@@ -154,7 +150,7 @@
     #sidebarCollapse {
         background: #EF5455;
         color: #2B3252;
-        font-weight: 600;
+        font-weight: 700;
         align-self: center;
         vertical-align: middle;
         transition: .4s;
@@ -245,6 +241,12 @@
         position: absolute;
         top: 0;
         right: 0;
+        background-color: white;
+    }
+    
+    #content>nav.navbar.navbar-expand-lg {
+        background-color: #f8f8f8;
+        color: #2B3252;
     }
     
     .sub-menu {

@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'students/registration', as: 'registration'
-  root 'sessions#welcome'
-  get 'home/index', as: 'home'
+  root 'home#index', as: 'home'
   resources :instructors
   resources :student_courses
   resources :students

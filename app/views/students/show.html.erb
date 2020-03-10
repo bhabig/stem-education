@@ -1,21 +1,8 @@
 <% if current_user %>
-	<% if flash["success"] != nil && flash["success"] != "" %>
-		<div class="alert alert-success alert-dismissible">
-			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			<%= flash["success"] %>
-		</div>
-		<br />
-	<% end %>
-    <% if flash["info"] != nil && flash["info"] != "" %>
-		<div class="alert alert-info alert-dismissible">
-			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			<%= flash["info"] %>
-		</div>
-	<% end %>
 	<div class="profile-component">
 		<h2>Progress</h2>
 		<div class="profile-component-body">
-		text
+			<%= current_user.current_course %>
 		</div>
 	</div>
 <% end %>
