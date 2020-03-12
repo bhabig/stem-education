@@ -91,6 +91,11 @@
                       <div><%= s.name %></div>
                     <% end %>
                   </div>
+                  <div class="container-fluid">
+                    <%= link_to "", href: "/sessions/destroy", method: :post do %>
+                        Sign Out
+                    <% end %>
+                  </div>
               </nav>
               <div id="yield">
                 <%= yield %>

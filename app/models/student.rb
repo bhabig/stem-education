@@ -33,6 +33,6 @@ class Student < ApplicationRecord
 	def current_course
 		#look at course completions. stop at first course not completed
 		#course completions would be in student_course
-		binding.pry
+		self.student_courses.detect { |x| x.grade.nil? }
 	end
 end
